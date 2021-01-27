@@ -1,0 +1,7 @@
+C:\Users\Abel Leony\Documents\GitHub\Projeto-Console-Vidracaria\Projeto-Console\Projeto-Console\obj\Debug\Projeto-Console.csprojAssemblyReference.cache
+C:\Users\Abel Leony\Documents\GitHub\Projeto-Console-Vidracaria\Projeto-Console\Projeto-Console\obj\Debug\Projeto-Console.csproj.CoreCompileInputs.cache
+C:\Users\Abel Leony\Documents\GitHub\Projeto-Console-Vidracaria\Projeto-Console\Projeto-Console\bin\Debug\Projeto-Console.exe.config
+C:\Users\Abel Leony\Documents\GitHub\Projeto-Console-Vidracaria\Projeto-Console\Projeto-Console\bin\Debug\Projeto-Console.exe
+C:\Users\Abel Leony\Documents\GitHub\Projeto-Console-Vidracaria\Projeto-Console\Projeto-Console\bin\Debug\Projeto-Console.pdb
+C:\Users\Abel Leony\Documents\GitHub\Projeto-Console-Vidracaria\Projeto-Console\Projeto-Console\obj\Debug\Projeto-Console.exe
+C:\Users\Abel Leony\Documents\GitHub\Projeto-Console-Vidracaria\Projeto-Console\Projeto-Console\obj\Debug\Projeto-Console.pdb

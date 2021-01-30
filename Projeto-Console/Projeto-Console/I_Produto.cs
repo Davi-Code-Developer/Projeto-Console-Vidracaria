@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Projeto_Console
 {
-    abstract class Produto
+    interface I_Produto
     {
-        public int id;
-        public double valor;
-        public string nome;
-        public int quantidade;
+        void exibir();
     }
 }

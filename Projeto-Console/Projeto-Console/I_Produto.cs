@@ -8,6 +8,6 @@ namespace Projeto_Console
 {
     interface I_Produto
     {
-        void exibir();
+        void Exibir();
     }
 }

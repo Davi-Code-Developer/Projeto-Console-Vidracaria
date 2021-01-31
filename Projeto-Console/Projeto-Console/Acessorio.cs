@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Projeto_Console
 {
+    [Serializable]
     class Acessorio : Produto, I_Produto
     {
-        public void exibir()
+        public Acessorio(int id, string nome, double valor, int quantidade): 
+            base(id, valor, nome, quantidade)
+        {
+        }
+        public void Exibir()
         {
             Console.WriteLine($"ID: {id}");
             Console.WriteLine($"Nome: {nome}");

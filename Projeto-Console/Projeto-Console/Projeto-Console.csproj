@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Acessorio.cs" />
     <Compile Include="Box.cs" />
+    <Compile Include="Cadastro.cs" />
     <Compile Include="Espelho.cs" />
     <Compile Include="I_Produto.cs" />
     <Compile Include="Janela.cs" />

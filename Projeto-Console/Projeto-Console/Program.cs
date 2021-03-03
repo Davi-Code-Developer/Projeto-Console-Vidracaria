@@ -16,15 +16,16 @@ namespace Projeto_Console
         protected enum Menu_Produto_Cadastro { Janela = 1, Porta, Espelho, Box, Acessorio }
         static void Main(string[] args)
         {
+            Carregar_Produto();
             bool sair = false;
             while (sair == false)
             {
                 Console.Clear();
                 Console.WriteLine("===Sistema de vendas Vidraçaria===");
-                Console.WriteLine("1-Venda" +
+                Console.WriteLine("1-Venda N CLIKA AQUI" +
                                 "\n2-Produto" +
-                                "\n3-Usuario" +
-                                "\n4-Cliente" +
+                                "\n3-Usuario N CLIKA AQUI" +
+                                "\n4-Cliente N CLIKA AQUI" +
                                 "\n5-Sair");
                 Menu menu = (Menu)int.Parse(Console.ReadLine());
                 switch (menu)
@@ -34,11 +35,15 @@ namespace Projeto_Console
                     case Menu.Produto:
                         Console.Clear();
                         Console.WriteLine("===Produto===");
-                        Console.WriteLine("1-Visualizar estoque\n2-Adicionar novo produto\n3-Atualizar produto\n4-Excluir produto existente");
+                        Console.WriteLine("1-Visualizar estoque" +
+                                        "\n2-Adicionar novo produto" +
+                                        "\n3-Atualizar produto N CLIKA AQUI" +
+                                        "\n4-Excluir produto existente");
                         Menu_Produto menu_produto = (Menu_Produto)int.Parse(Console.ReadLine());
                         switch (menu_produto)
                         {
                             case Menu_Produto.Visualizar:
+                                Listar_Produto();
                                 break;
                             case Menu_Produto.Atualizar:
                                 break;
@@ -46,6 +51,7 @@ namespace Projeto_Console
                                 Cadastro.Cadastrar_Produto();
                                 break;
                             case Menu_Produto.Excluir:
+                                Remover_produto();
                                 break;
                         }
                         break;
@@ -102,6 +108,71 @@ namespace Projeto_Console
             encoder.Serialize(stream,produtos);
             stream.Close();
         }
-        
+        static void Carregar_Produto()
+        {
+            FileStream stream = new FileStream("Produtos.dat",FileMode.OpenOrCreate);
+            BinaryFormatter encoder = new BinaryFormatter();
+            try
+            {
+                produtos = (List<I_Produto>)encoder.Deserialize(stream);
+                if(produtos == null)
+                {
+                    produtos = new List<I_Produto>();
+                }
+            }
+            catch (Exception e)
+            {
+                produtos = new List<I_Produto>();
+            }
+            stream.Close();
+        }        
+        static void Listar_Produto()
+        {
+            Console.Clear();
+            int i = 0;
+            Console.WriteLine("====Lista de produtos cadastrados====");
+            foreach(I_Produto entrada in produtos)
+            {
+                Console.WriteLine($"Op: [{i}]");
+                Console.WriteLine("____________________________________");
+                entrada.Exibir();
+                Console.WriteLine("____________________________________");
+                i++;
+            }
+            Console.WriteLine("Aperte enter para continuar");
+            Console.ReadLine();
+        }
+        static void Remover_produto()
+        {
+            Listar_Produto();
+            Console.WriteLine("Digite a OP do produto para ser apagado:");
+            int op = int.Parse(Console.ReadLine());
+            if(op < produtos.Count || op > produtos.Count)
+            {
+                produtos.RemoveAt(op);
+                Salvar();
+                Console.WriteLine("Produto removido com exito!");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Opção invalida!");
+                Console.ReadLine();
+            }
+            
+            
+        }
+        static void Atualizar_produto()
+        {
+            Listar_Produto();
+            Console.WriteLine("Digite a OP do produto para ser atualizado:");
+            int op = int.Parse(Console.ReadLine());
+            if (op < produtos.Count || op > produtos.Count)
+            {
+                Salvar();
+                Console.WriteLine("Produto Atualizado com sucesso!");
+                Console.ReadLine();
+            }
+        }
     }
 }
